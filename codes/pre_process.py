@@ -11,7 +11,7 @@ def main():
 		with open(os.path.join(diri,file),'r') as f:
 			txt = f.read()
 			txt = comment_strip(txt)
-			os.system("clang-format -style=Google -i ")
+			os.system("clang-format -style=Microsoft -i ")
 			txt = remove_variables(txt)
 			with open(os.path.join(diro,file),'w') as ff:
 				ff.write(txt)
