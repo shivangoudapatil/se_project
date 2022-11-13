@@ -1,5 +1,5 @@
 import re
-def rem_var(txt):
+def remove_variables(txt):
 	dts = ["int","float","long","long long","char","double","void","long double"]
 	vars = []
 	for dt in dts:
