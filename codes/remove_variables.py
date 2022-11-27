@@ -1,8 +1,13 @@
-import re
+#regular expession
+import re 
+
 def remove_variables(txt):
+	
+	#all variables have to follow these data types
 	dts = ["int","float","long","long long","char","double","void","long double"]
 	vars = []
     
+	#string searching and storing all strings in vars
 	for dt in dts:
 		res = [i+len(dt)+1 for i in range(len(txt)) if txt.startswith(dt, i)]
 		# print(res)
@@ -16,6 +21,8 @@ def remove_variables(txt):
 				while i<len(txt) and txt[i]!=',' and txt[i]!=';': i = i+1;
 				if i<len(txt) and txt[i]==';': break;
 				np = i+2
+				
+	#removing those variables			
 	vars = [item for item in vars if item not in dts]
 	for var in vars:
 		txt = re.sub(r'\b%s\b'%var,'',txt)
