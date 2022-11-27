@@ -6,15 +6,14 @@ from definitions import ROOT_DIR
 #if its not c file we will not consider it
 from validateC import validateProgramType
 
+
 def pre_process():
-	
 	diri = os.fsencode(os.path.join(ROOT_DIR, 'input_files'))
 	diro = os.fsencode(os.path.join(ROOT_DIR, 'processed_files'))
 	dirs = os.fsencode(os.path.join(ROOT_DIR, 'semi_processed_files'))
 	diri = diri.decode('utf-8')
 	diro = diro.decode('utf-8')
 	dirs = dirs.decode('utf-8')
-	
 	
 	#validating and removing comment
 	for file in os.listdir(diri):
@@ -24,16 +23,21 @@ def pre_process():
 				txt = comment_strip(txt)
 				with open(os.path.join(dirs,file),'w') as ff:
 					ff.write(txt)
-	
+					
 	#properly formatting / beautifying c code to maintain uniformity
 	for file in os.listdir(dirs):
 		os.system("clang-format -style=Microsoft -i " + os.path.join(dirs,file))
 		
+	#for removing new line and tab
+	red = ['\n','\t',' ']
+			
 	#removing variables in every file in directory
 	for file in os.listdir(dirs):
 		with open(os.path.join(dirs,file),'r') as f:
 			txt = f.read()
 			txt = remove_variables(txt)
+			new_txt = [i for i in txt if i not in red]
+			out_txt = ''.join(new_txt)
 			with open(os.path.join(diro,file),'w') as ff:
-				ff.write(txt)
+				ff.write(out_txt)
      	
