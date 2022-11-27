@@ -1,5 +1,6 @@
 import os
 
+#validating based on extension
 def validateProgramType(fileName):
     ext = os.path.splitext(fileName)[-1].lower()
     if(ext==".c"):
