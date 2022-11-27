@@ -36,14 +36,14 @@ def pre_process():
 		os.system("clang-format -style=Microsoft -i " + os.path.join(dirs,file))
 		
 	#for removing new line and tab
-	red = ['\n','\t',' ']
+	ESCAPE_SEQUENCE = ['\n','\t',' ']
 			
 	#removing variables in every file in directory
 	for file in os.listdir(dirs):
 		with open(os.path.join(dirs,file),'r') as f:
 			txt = f.read()
 			txt = remove_variables(txt)
-			new_txt = [i for i in txt if i not in red]
+			new_txt = [i for i in txt if i not in ESCAPE_SEQUENCE]
 			out_txt = ''.join(new_txt)
 			with open(os.path.join(diro,file),'w') as ff:
 				ff.write(out_txt)
