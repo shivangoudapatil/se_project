@@ -1,1 +1,0 @@
-#include<stdio.h>unsignedint(unsignedint){if(==0)return1;return*(-1);}int(){int=5;printf("Factorialof%dis%d",,());return0;}
