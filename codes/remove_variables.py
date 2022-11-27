@@ -4,11 +4,11 @@ import re
 def remove_variables(txt):
 	
 	#all variables have to follow these data types
-	dts = ["int","float","long","long long","char","double","void","long double"]
+	DTS = ["int","float","long","long long","char","double","void","long double"]
 	vars = []
     
 	#string searching and storing all strings in vars
-	for dt in dts:
+	for dt in DTS:
 		res = [i+len(dt)+1 for i in range(len(txt)) if txt.startswith(dt, i)]
 		# print(res)
 		for pos in res:
@@ -23,7 +23,7 @@ def remove_variables(txt):
 				np = i+2
 				
 	#removing those variables			
-	vars = [item for item in vars if item not in dts]
+	vars = [item for item in vars if item not in DTS]
 	for var in vars:
 		txt = re.sub(r'\b%s\b'%var,'',txt)
 	return txt
