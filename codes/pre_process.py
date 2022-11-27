@@ -8,6 +8,13 @@ from validateC import validateProgramType
 
 
 def pre_process():
+
+	#creating path for temporary files if program is being run for first time
+	if not os.path.exists(os.path.join(ROOT_DIR, 'processed_files')):
+		os.makedirs(os.path.join(ROOT_DIR, 'processed_files'))
+	if not os.path.exists(os.path.join(ROOT_DIR, 'semi_processed_files')):
+		os.makedirs(os.path.join(ROOT_DIR, 'semi_processed_files'))
+		
 	diri = os.fsencode(os.path.join(ROOT_DIR, 'input_files'))
 	diro = os.fsencode(os.path.join(ROOT_DIR, 'processed_files'))
 	dirs = os.fsencode(os.path.join(ROOT_DIR, 'semi_processed_files'))
