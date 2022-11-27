@@ -10,6 +10,9 @@ from getplag import getplag
 #this will remove comments and variables then convert c files to proper format
 from pre_process import pre_process 
 
+#this is used to delete files temp files after obtaining results
+from delete_files import delete_temp_files
+
 def check():
 	
 	##this will remove comments and variables then convert c files to proper format
@@ -45,6 +48,9 @@ def check():
 		b = [','.join(str(x) for x in ele) for ele in ot_mat]
 		st = '\n'.join(b)
 		ff.write(st)
+		
+	#deleting all temp files created
+	delete_temp_files()
 		
 	#opening the csv file with default app
 	subprocess.call(('xdg-open',os.path.join(ROOT_DIR, 'results.csv')))
