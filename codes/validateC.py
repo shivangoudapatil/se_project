@@ -10,7 +10,7 @@ def validateProgramType(fileName):
         #print("Not a valid file type")
         return False
 
-```
+'''
 x = validateProgramType("hello.c")
 x1=validateProgramType("prog1.c")
 y = validateProgramType("hi.cpp")
@@ -18,4 +18,4 @@ y1 = validateProgramType("prog2c.py")
 
 assert(x==True)
 assert(y==False)
-```
+'''
