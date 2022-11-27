@@ -1,1 +1,0 @@
-#include<stdio.h>int(int,int,int[],int[][]){int;[]=1;for(=1;<=;++){if([][]&&![]){[]=1;(,,,);}}return*;}int(){int;scanf("%d",&);int,;scanf("%d%d",&,&);int,,[+1][+1];for(=1;<=;++){for(=1;<=;++){[][]=0;}}intv1,v2,;for(=0;<;++){scanf("%d%d%d",&v1,&v2,&);[v1][v2]=;}int[];for(=1;<=;++){[]=0;}int=0;for(=1;<=;++){if([]==0){=(1,,,);=+1;}}printf("%d",);return0;}
