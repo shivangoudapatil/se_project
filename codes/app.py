@@ -12,6 +12,7 @@ from pre_process import pre_process
 
 #this is used to delete files temp files after obtaining results
 from delete_files import delete_temp_files
+from RESULT_SHEET import final
 
 def check():
 	
@@ -54,6 +55,7 @@ def check():
 		b = [','.join(str(x) for x in ele) for ele in ot_mat]
 		st = '\n'.join(b)
 		ff.write(st)
+	final()
 		
 	#deleting all temp files created
 	delete_temp_files()
