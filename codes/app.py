@@ -25,6 +25,8 @@ def check():
 	#heading of our csv file
 	ot_mat = [["filename1","filename2","plagiarism result %"]]
 	
+	filePair=[]
+
 	#checking each file with every other file for plagiarism
 	for file1 in os.listdir(dirr):
 		with open(os.path.join(dirr,file1),'r') as f1:
@@ -38,9 +40,13 @@ def check():
 					
 					#smaller file comes in first column in the csv file
 					if ff1>ff2: ff1,ff2 = ff2,ff1 
+					newPair=[ff1,ff2]
+					if newPair in filePair:
+						continue
 					lst.append(ff1)
 					lst.append(ff2)
 					lst.append(getplag(t1,t2)*100)
+					filePair.append(newPair)
 				ot_mat.append(lst)
 	
 	#writing the 2d matrix os_mat to the csv file in proper format
